@@ -2,6 +2,8 @@ import React from "react";
 import Cell from "../cell/Cell";
 
 const Line = ({ line, columns, onClickCell, highlightCells }) => {
+  console.log(line);
+  console.log(columns);
   return (
     <div key={line} className="flex">
       {line}
