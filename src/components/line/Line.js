@@ -1,16 +1,16 @@
 import React from "react";
 import Cell from "../cell/Cell";
 
-const Line = ({ line, columns, onClickCell, highlightCells }) => {
-  console.log(line);
-  console.log(columns);
+const Line = ({ line, columns, onClickCell, highlightCells, cellClicked }) => {
   return (
-    <div key={line} className="flex">
-      {line}
-      <div className="row">
+    <>
+      <div key={line} className="row">
+        <div className={"col-1 offset-1 border"}>{line}</div>
         {columns.map(cell => {
           const isHighlighted =
-            highlightCells.indexOf(cell + line) >= 0 ? "hightlight" : "";
+            highlightCells.indexOf(cell + line) >= 0 ? " hightlight " : "";
+          const blackOrWhite =
+            (line + columns.indexOf(cell)) % 2 === 0 ? " white " : " black ";
           return (
             <Cell
               key={`${cell + line}`}
@@ -18,11 +18,13 @@ const Line = ({ line, columns, onClickCell, highlightCells }) => {
               cell={cell}
               onClickCell={onClickCell}
               isHighlighted={isHighlighted}
+              cellClicked={cellClicked}
+              blackOrWhite={blackOrWhite}
             />
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 
