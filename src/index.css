@@ -19,11 +19,6 @@
   padding-top: 100%; /* initial ratio of 1:1*/
 }
 
-.knight {
-  max-width: 50px;
-  max-height: 50px;
-}
-
 .white {
   background-color: #fff8dc;
 }
